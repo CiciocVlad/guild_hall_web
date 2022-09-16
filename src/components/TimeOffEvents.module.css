@@ -1,0 +1,19 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: fit-content;
+  padding: 0.625rem;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 1050px) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}

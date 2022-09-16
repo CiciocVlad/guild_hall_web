@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost&family=Lato&display=swap');
+
+:root {
+  --color-purple900: #2b103a;
+  --color-purple700: #2b103a14;
+  --color-purple500: #5b3f791f;
+  --color-purple400: #5b3f79;
+  --color-purple600: #121212;
+  --color-purple300: #2d2c2e;
+  --color-purple200: #5b3f79;
+  --color-black800: #0f0d10;
+  --color-purple800: #1b171e;
+  --color-purple100: #b498cf;
+  --color-purple400: #231f26;
+  --color-green300: #71e878;
+  --color-green400: #98c379;
+  --color-green500: #71e878;
+  --color-green700: #8bca5e;
+  --color-green800: #7db554;
+  --color-yellow500: #ffc107;
+  --color-yellow700: #ffb300;
+  --color-blue500: #0054ff;
+  --color-blue508: #0054ff14;
+  --color-blue200: #a0aeff;
+  --color-blue208: #a0aeff14;
+  --color-pink700: #d5157f;
+  --color-pink200: #ee86bc;
+  --color-black100: #111111;
+  --color-black200: #11111199;
+  --color-black300: #1f1f1fba;
+  --color-black500: #121212;
+  --color-black600: #adacac;
+  --color-black700: #111111;
+  --color-black: #000000;
+  --color-red500: #ee313c;
+  --color-red200: #cf5579;
+  --color-white: #ffffff;
+  --color-grey: #333333;
+  --color-white500: #fafaf9;
+  --color-white087: #ffffffde;
+  --color-whiteI: #ffffff99;
+  --color-white200: #f7f7f7;
+  --color-white800: #ffffffde;
+  --color-white024: #ffffff3d;
+  --color-orange: #db4437;
+  --color-white100: #e5e5e5;
+  --color-black400: #ffffff05;
+  --color-green200: #a5f2a9;
+  --color-green600: #57dd5e;
+  --color-white700: #e8e4ed;
+  --color-black100: #4c4f4c;
+  --color-yellow100: #ffc1071f;
+  --dialog-level: 100;
+  --color-grey100: #37303b;
+  --app-bar-height-large: 6.25rem;
+  --app-bar-height-small: 3.5rem;
+  --light-black: #0000000a;
+  --dark-white: #ffffff14;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+}

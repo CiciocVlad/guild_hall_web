@@ -1,0 +1,23 @@
+.drawer {
+  width: 26rem;
+  flex-grow: 1;
+}
+
+.buttons_container {
+  justify-content: space-around;
+  display: flex;
+  margin-bottom: 2rem;
+  margin-top: 2.5rem;
+}
+
+.section_title {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 1050px) {
+  .drawer {
+    width: 100%;
+  }
+}

@@ -1,0 +1,67 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+.content_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.5rem;
+}
+
+.title {
+  font-family: 'Lato';
+  font-size: 11.25rem;
+  font-weight: 900;
+  line-height: 140%;
+  letter-spacing: 0.0015em;
+}
+
+.message {
+  font-family: 'Roboto Slab';
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 135%;
+  letter-spacing: 0.0015em;
+  text-align: center;
+}
+
+@media only screen and (max-width: 940px) {
+  .container {
+    background-image: url('../../assets/svg/not_found/not-found-bg-small.svg') !important;
+  }
+  .content_container {
+    padding: 2rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .title {
+    font-size: 6.875rem;
+  }
+  .message {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .content_container {
+    justify-content: center;
+    flex-grow: 0.5;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .title {
+    font-size: 3.435rem;
+  }
+  .message {
+    font-size: 0.75rem;
+  }
+}

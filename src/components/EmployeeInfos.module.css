@@ -1,0 +1,58 @@
+.subtitle {
+  font-family: 'Lato';
+  letter-spacing: 0.5%;
+  font-size: 0.75rem !important;
+  width: fit-content;
+  white-space: nowrap;
+  opacity: 60%;
+  line-height: 1.3em;
+}
+
+.content {
+  font-size: 1rem;
+}
+
+.boxstyle {
+  min-height: 8.15em;
+  margin-top: 0.5em;
+  max-width: 100%;
+}
+
+.section_boxstyle {
+  min-height: 8.15em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.section_content {
+  display: flex;
+  width: auto;
+  padding: 0 2rem 1.5rem 2rem;
+  text-align: justify;
+}
+
+.section_content_first {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.section_content_second {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.sectionTitle {
+  display: flex;
+}
+
+@media only screen and (max-width: 1050px) {
+  .sectionTitle {
+    margin-left: 2rem;
+  }
+  .section_content_first {
+    padding-bottom: 1.5rem;
+  }
+}

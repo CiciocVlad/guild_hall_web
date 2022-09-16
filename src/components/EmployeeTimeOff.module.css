@@ -1,0 +1,21 @@
+.container_time_off {
+  display: grid;
+  grid-template-columns: repeat(4, 0.1fr);
+}
+
+.container_taken_days {
+  display: grid;
+  grid-template-columns: repeat(2, 0.1fr);
+}
+
+@media only screen and (max-width: 1050px) {
+  .container_time_off {
+    grid-template-columns: repeat(2, 0.1fr);
+    row-gap: 1em;
+  }
+
+  .container_taken_days {
+    grid-template-columns: repeat(1, 0.1fr);
+    row-gap: 1em;
+  }
+}

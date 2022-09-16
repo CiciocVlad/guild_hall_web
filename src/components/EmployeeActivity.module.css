@@ -1,0 +1,14 @@
+.divider {
+  opacity: 60%;
+  margin: 1rem 0 !important;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  width: fit-content !important;
+  height: fit-content !important;
+}

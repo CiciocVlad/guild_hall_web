@@ -1,0 +1,47 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-image: url('../../assets/images/login-background.jpeg');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  background-color: var(--color-purple900);
+}
+
+.login_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.image_container {
+  flex: 1;
+}
+
+.header {
+  position: absolute;
+  left: 0.3rem;
+  top: 0.3rem;
+}
+
+.header > img {
+  height: 3rem;
+  width: auto;
+}
+
+@media only screen and (max-width: 1050px) {
+  .image_container {
+    display: none;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../../assets/images/login-bg-small.jpeg');
+    width: 100vw;
+    position: fixed;
+  }
+}

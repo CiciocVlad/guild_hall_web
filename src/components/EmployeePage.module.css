@@ -1,0 +1,26 @@
+.loadingContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+@media only screen and (max-width: 1050px) {
+  .container {
+    display: block;
+    flex-grow: 0;
+  }
+  .loadingContainer {
+    top: var(--app-bar-height-small);
+    bottom: 0;
+  }
+}

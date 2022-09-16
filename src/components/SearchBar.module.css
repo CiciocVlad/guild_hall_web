@@ -1,0 +1,21 @@
+.search_bar_wrapper {
+  display: flex;
+  height: 2.4rem;
+
+  margin-top: 2.5rem;
+
+  align-items: center;
+}
+
+@media only screen and (max-width: 1050px) {
+  .search_bar_wrapper {
+    width: 22rem !important;
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .search_bar_wrapper {
+    width: 15rem !important;
+  }
+}

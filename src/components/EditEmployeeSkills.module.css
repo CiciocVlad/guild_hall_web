@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  padding: 1rem;
+}
+
+.button {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.625rem 1rem;
+  border-radius: 1.25rem;
+  text-transform: none;
+}

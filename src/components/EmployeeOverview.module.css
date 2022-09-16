@@ -1,0 +1,78 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chip {
+  height: 2.28em;
+  width: fit-content;
+  margin-top: 1.42em;
+  margin-right: 0.5rem;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.skills_container {
+  display: grid;
+  margin-top: 0.68em;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2.06em;
+  width: 20%;
+}
+
+.skills {
+  width: 4.75em;
+  height: 4.75em;
+}
+
+.social_media_container {
+  display: grid;
+  margin-left: 7.18em;
+  margin-top: 0.68em;
+  grid-template-columns: repeat(10, 1fr);
+  column-gap: 1.37em;
+  width: 20%;
+}
+
+.container {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+@media only screen and (max-width: 1050px) {
+  .avatar_container {
+    margin: 1.5em 0 0 0;
+    align-self: center;
+  }
+
+  .subtitle {
+    margin: 1em 0 0 1em !important;
+  }
+
+  .skills_container {
+    margin-left: 0.93em;
+    margin-top: 0.68em;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .chip {
+    margin: 1.25em 0 0 1em !important;
+  }
+
+  .social_media_container {
+    margin-left: 1.56em;
+  }
+  .container {
+    margin-top: 1.5em;
+    padding-bottom: 1.25em;
+  }
+}
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

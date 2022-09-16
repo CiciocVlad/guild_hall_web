@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+}
+
+.white_box {
+  flex-grow: 1;
+  max-width: 23.875rem;
+  height: 23.375rem;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-white);
+}
+
+.login_button {
+  height: 2.4em;
+}
+
+.need_help_text {
+  color: var(--color-white);
+  text-align: 'center';
+}
+
+.welcome_text {
+  color: var(--color-blue500);
+}
+
+.welcome_text::after {
+  content: '|';
+  color: var(--color-purple900);
+  animation: blink 1.25s linear infinite;
+  opacity: 0;
+}
+
+@keyframes blink {
+  0%,
+  35%,
+  65%,
+  100% {
+    opacity: 0;
+  }
+  40%,
+  60% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,92 @@
+# IMPORTANT:
+# A. This workflow is supposed to increment the version on the main branch (defined at env.MAIN_BRANCH)
+#    Therefore, make sure to run it ONLY on main branch, even though it is possible to select other branches
+#    This limitation is currently (15/09/2022) under proposal for change (https://github.com/community/community/discussions/19779)
+#
+# B. Workflow logic:
+#    -- Run conditions:
+#       - Runs automatically on each merged PR against production branch (defined at env.PROD_BRANCH)
+#       - Run on-demand -> make sure to run it on the main branch (defined at env.MAIN_BRANCH)
+#    -- Steps:
+#       1. Configure AWS Credentials - required for calling Amplify API from within the GIT action create container
+#       2. Configures GIT credentials - required for various interactions with the project git repo
+#       3. Checks out code - required for obvious reasons
+#       4. Runs script: ./scripts/amplify/check_amplify_job_status.sh
+#           - This script compares the ID/SHA of the last commit in (env.PROD_BRANCH) with the ID based on which
+#             the latest AWS Amplify deployment was built
+#           - When the commit IDs don't match, the version increment must not happen, as one of the following scenarios may apply:
+#             a. Latest prod branch change (eg: PR merge, hot-fix, etc) is not yet deployed in Amplify
+#                -> Possible reasons: network communication failure, aws services failure, etc...
+#                -> When this happens, a manual rebuild in AWS Amplify console is required, followed by a manual run of this workflow
+#             b. Someone changed the prod branch during the time between the start of this workflow and the commit ID check happens
+#                -> This means a concurrent run of this workflow can happen (one for the previous trigger change, one for current)
+#                   which can lead to inaccurate versioning
+#                -> Currently this workflow has no concurrency settings in place, so this script serves as a small defense mechanism
+#           - When commit IDs match, script returns a 0 exit code, which enables the execution of the rest of the workflow
+#       5. Updates (env.MAIN_BRANCH) with PR merge/last change(s) from (env.PROD_BRANCH)
+#          -> git fetch -> git pull -> git push
+#       6. Increments version on (env.MAIN_BRANCH)
+#          6.1 Increments version in package.json and/or README.md files where the version is referenced
+#          6.2 Creates/updates a CHANGELOG.md where all commits are listed per version
+#          6.3 Pushes (env.MAIN_BRANCH)
+#          The commit message of this action is: ⬆ Bump version to {{version}}
+name: PROD-Project version increment
+
+env:
+  PROD_BRANCH: av/prod
+  MAIN_BRANCH: av/main
+  AWS_REGION: eu-west-1
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - av/prod
+  workflow_dispatch:
+    inputs:
+      acknowledge:
+        description: 'Make sure you are running this workflow on the main branch'
+        required: true
+        default: ok
+        type: choice
+        options:
+          - ok
+
+jobs:
+  version-increment:
+    name: PROD-Project version increment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Configure GIT Credentials
+        uses: oleksiyrudenko/gha-git-credentials@v2-latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}'
+          global: true
+      - name: Code checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Determine whether version increment can be done
+        run: |
+          PROD_BRANCH="${PROD_BRANCH}" && bash ./scripts/amplify/check_amplify_job_status.sh
+          if [[ $? != 0 ]]; then exit 1; else exit 0; fi
+          echo "---> [INFO] Proceed with main branch update and version increment"
+      - name: Update main branch with production
+        run: |
+          git fetch origin
+          git checkout ${MAIN_BRANCH}
+          git pull origin ${PROD_BRANCH}
+          git push origin ${MAIN_BRANCH}
+      - name: Increment version
+        uses: undergroundwires/bump-everywhere@master
+        with:
+          git-token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: none
+          commit-message: '⬆ Bump version to {{version}}'

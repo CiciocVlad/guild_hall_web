@@ -1,0 +1,100 @@
+.container {
+  height: var(--app-bar-height-large);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+}
+
+.content {
+  flex-grow: 1;
+  justify-content: center;
+  display: flex;
+}
+
+.logo {
+  padding: 5px;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+}
+
+.menu_button_mobile {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons_overlay {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.625rem;
+}
+
+.theme_switch_container {
+  display: flex;
+  padding-left: 1rem;
+}
+
+.theme_switch_label {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
+div .share_button {
+  height: 2.25rem;
+  border-radius: 2.5rem;
+  font-size: 0.875rem;
+  font: Lato;
+  padding: 1rem;
+  font-weight: 500;
+}
+div .share_button:hover {
+  background-color: var(--color-black800);
+  color: var(--color-green700);
+}
+div .share_button:active {
+  background-color: var(--color-black800);
+  color: var(--color-white);
+}
+
+div .share_icon {
+  transform: rotate(180deg);
+  margin-left: 0.5rem;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+div .alert {
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font: Lato;
+  height: 2.875rem;
+  width: 25rem;
+  margin-top: 5rem;
+}
+
+.logout {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1050px) {
+  .container {
+    height: var(--app-bar-height-small);
+  }
+}

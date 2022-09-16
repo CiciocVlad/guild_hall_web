@@ -1,0 +1,39 @@
+.tech_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  max-width: calc(86px * 6 + 2rem * 6);
+  gap: 2rem;
+}
+
+div .left_bracket {
+  margin-right: 1.25rem;
+}
+
+div .right_bracket {
+  margin-left: 1.25rem;
+}
+
+@media only screen and (max-width: 400px) {
+  div .left_bracket {
+    margin-right: 0;
+  }
+
+  div .right_bracket {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 787px) {
+  .tech_container {
+    max-width: calc(86px * 3 + 2rem * 3);
+  }
+}
+
+@media only screen and (max-width: 359px) {
+  .tech_container {
+    gap: 1rem;
+    max-width: calc(86px * 3 + 1rem * 3);
+  }
+}
